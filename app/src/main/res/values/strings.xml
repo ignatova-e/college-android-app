@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Устный счёт</string>
+    <string name="start">СТАРТ</string>
+    <string name="check">ПРОВЕРКА</string>
+    <string name="answer">Ваш ответ</string>
+    <string name="initial_message">Нажмите СТАРТ, чтобы получить пример</string>
+    <string name="solve_message">Введите целое число и нажмите ПРОВЕРКА</string>
+    <string name="correct_message">Верно! Отличная работа.</string>
+    <string name="wrong_message">Неверно. Правильный ответ: %1$d</string>
+    <string name="invalid_answer">Введите целое число</string>
+    <string name="total">Итого решено примеров\n%1$d</string>
+    <string name="correct_count">Правильно\n%1$d</string>
+    <string name="wrong_count">Неправильно\n%1$d</string>
+    <string name="accuracy">Правильных ответов</string>
+</resources>
