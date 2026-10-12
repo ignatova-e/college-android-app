@@ -1,59 +1,67 @@
-# Устный счет — Android-приложение на Kotlin
+# Mental Arithmetic — Kotlin Android App
 
-Учебное приложение для тренировки арифметики.
+An educational app for practicing arithmetic.
 
-## Возможности
+## Features
 
-- СТАРТ создает пример с двумя целыми операндами от 10 до 99 включительно и
-  случайной операцией `*`, `/`, `-`, `+`. Фон нового примера белый.
-- При делении оба операнда двузначные, а частное всегда целое (в том числе 1).
-- Во время решения СТАРТ заблокирован; доступны ввод ответа и ПРОВЕРКА.
-- После проверки ввод и ПРОВЕРКА блокируются, СТАРТ снова доступен.
-- Правильный ответ окрашивает пример в зеленый, неправильный — в красный.
-  Текстовое сообщение также показывает результат и правильный ответ при ошибке.
-- На экране отображаются общее число решенных примеров, правильные и
-  неправильные ответы и процент с двумя знаками после точки, например `66.67%`.
-- Отрицательные ответы и ноль поддерживаются. Пустой ввод, один минус и числа
-  вне диапазона Int вызывают подсказку: проверка не считается завершенной и
-  статистика не меняется.
-- При повороте сохраняются пример, введенный текст, результат, фон, доступность
-  кнопок, ошибка ввода и статистика через `onSaveInstanceState`. Поворот не
-  заблокирован, Activity пересоздается обычным образом.
-- Экран прокручивается, чтобы элементы были доступны в горизонтальной ориентации
-  и при открытой клавиатуре.
+- START creates an exercise with two integer operands from 10 through 99 and a
+  randomly selected operation: `*`, `/`, `-`, or `+`. A new exercise has a white
+  background.
+- For division, both operands are two-digit numbers and the quotient is always
+  an integer (including 1).
+- While solving an exercise, START is disabled; answer entry and CHECK are
+  available.
+- After checking, answer entry and CHECK are disabled, and START becomes
+  available again.
+- A correct answer turns the exercise green; an incorrect answer turns it red.
+  A text message also shows the result and, for an incorrect answer, the correct
+  answer.
+- The screen displays the total number of completed exercises, correct and
+  incorrect answers, and the percentage to two decimal places, for example
+  `66.67%`.
+- Negative answers and zero are supported. Empty input, a single minus sign, and
+  numbers outside the Int range show a prompt: the check is not considered
+  complete and the statistics do not change.
+- On rotation, the exercise, entered text, result, background, button
+  availability, input error, and statistics are preserved through
+  `onSaveInstanceState`. Rotation is enabled, and the Activity is recreated as
+  usual.
+- The screen scrolls so that all elements remain accessible in landscape
+  orientation and while the keyboard is open.
 
-## Запуск
+## Getting started
 
-1. Клонируйте репозиторий и откройте его корневую папку в Android Studio.
-2. Выберите JDK 17 для Gradle и установите Android SDK Platform 35 через SDK
+1. Clone the repository and open its root folder in Android Studio.
+2. Select JDK 17 for Gradle and install Android SDK Platform 35 through the SDK
    Manager.
-3. Дождитесь синхронизации Gradle.
-4. Запустите конфигурацию `app` на эмуляторе или устройстве Android 6.0 (API 23)
-   и выше.
+3. Wait for Gradle synchronization to finish.
+4. Run the `app` configuration on an emulator or an Android 6.0 (API 23) device
+   or later.
 
-Используются Kotlin 2.1.20, Android Gradle Plugin 8.9.2, Gradle Wrapper 8.11.1.
-Интерфейс построен программно на стандартных Android Views; дополнительные
-библиотеки интерфейса не нужны.
+The project uses Kotlin 2.1.20, Android Gradle Plugin 8.9.2, and Gradle Wrapper
+8.11.1. The interface is built programmatically with standard Android Views; no
+additional UI libraries are required.
 
-## Проверки и APK
+## Checks and APK
 
 ```sh
 ./gradlew testDebugUnitTest lintDebug assembleDebug
 ```
 
-В Windows используйте `gradlew.bat`. Для командной сборки задайте путь к SDK
-через `ANDROID_HOME` или `sdk.dir` в локальном файле `local.properties` (не
-добавляется в Git).
+On Windows, use `gradlew.bat`. For command-line builds, set the SDK path through
+`ANDROID_HOME` or `sdk.dir` in the local `local.properties` file (which is not
+added to Git).
 
-APK после сборки: `app/build/outputs/apk/debug/app-debug.apk`.
+After the build, the APK is located at:
+`app/build/outputs/apk/debug/app-debug.apk`.
 
-GitHub Actions выполняет тесты, lint и сборку при push и pull request. После
-успешного запуска APK доступен во вкладке **Actions → Android build → Artifacts
-→ arithmetic-trainer-debug**.
+GitHub Actions runs tests, lint, and the build on every push and pull request.
+After a successful run, the APK is available under **Actions → Android build →
+Artifacts → arithmetic-trainer-debug**.
 
-## Структура
+## Project structure
 
-- `MainActivity.kt` — интерфейс, обработчики, статистика и сохранение состояния.
-- `Exercise.kt` — модель примера, вычисление ответа и генератор.
-- `ExerciseTest.kt` — тесты арифметики и генератора.
-- `.github/workflows/android.yml` — автоматическая проверка и сборка APK.
+- `MainActivity.kt` — interface, event handlers, statistics, and state saving.
+- `Exercise.kt` — exercise model, answer calculation, and generator.
+- `ExerciseTest.kt` — arithmetic and generator tests.
+- `.github/workflows/android.yml` — automated checks and APK build.
